@@ -16,82 +16,78 @@ const Productos = require("./productos.js");
 const products = new Productos();
 
 const { Router } = express;
-const router = Router();
-app.use("/api", router);
+const productRoutes  = Router();
+app.use("/api/products", productRoutes );
 
 //GET '/api/products' -> devuelve todos los products.
-router.get("/products", async (req, res) => {
+productRoutes.get("", async (req, res) => {
     res.json(await products.getAll());
 });
 
 //GET '/api/products/:id' -> devuelve un producto según su id.
-router.get("/products/:id", async (req, res) => {
+productRoutes.get("/products/:id", async (req, res) => {
     res.json(await products.getById(req.params.id));
 });
 
 const middlewareIsAdmin = async (req, res, next) => {
-    const isAdmin = req.params.boolean.toLocaleLowerCase() 
+    const isAdmin = req.params.boolean.toLocaleLowerCase();
 
-    if(isAdmin === "true") {
+    if (isAdmin === "true") {
         next();
+    } else {
+        res.json({ error: -1, descripcion: "ruta 'x' método 'y' no autorizada" });
     }
-    else {
-        res.json({ error : -1, descripcion: "ruta 'x' método 'y' no autorizada"}) 
-    }
-    
-}
-
-//POST '/api/products' ->
-router.post("/products/:boolean",middlewareIsAdmin, async (req, res) => {
-
-    products.save(req.body);
-    res.redirect('/')
-
-});
+};
 
 //PUT '/api/products/:id' -> recibe y actualiza un producto según su id.
-router.put("/products/:id/:boolean",middlewareIsAdmin, async (req, res) => {
+productRoutes.put("/products/:id/:boolean", middlewareIsAdmin, async (req, res) => {
     //if (isAdmin(req)) {
-        res.send(await products.updateById(req.params.id, req.body))
-        //res.json({ result: "Success" });
-   // } else res.json({ error: "Not authorized" });
+    res.send(await products.updateById(req.params.id, req.body));
+    //res.json({ result: "Success" });
+    // } else res.json({ error: "Not authorized" });
 });
 
 //DELETE '/api/products/:id' -> elimina un producto según su id.
-router.delete("/products/:id/:boolean",middlewareIsAdmin, async (req, res) => {
+productRoutes.delete("/products/:id/:boolean", middlewareIsAdmin, async (req, res) => {
     //if (isAdmin(req)) {
-        res.send(await products.deleteById(req.params.id));
-     //   res.json({ result: "Success" });
+    res.send(await products.deleteById(req.params.id));
+    //   res.json({ result: "Success" });
     //} else res.json({ error: "Not authorized" });
 });
 
-// **************************************************************** CARRITO
+//POST '/api/products' ->
+productRoutes.post("/products/:boolean", middlewareIsAdmin, async (req, res) => {
+    products.save(req.body);
+    res.redirect("/");
+});
 
+// **************************************************************** CARRITO
+const cartRouter = Router()
+app.use("/api/carrito", cartRouter );
 const Cart = require("./carrito.js");
-const e = require("express");
+//const e = require("express");
 const carrito = new Cart();
 
 //POST: '/' - Crea un carrito y devuelve su id.
-router.post("/carrito", async (req, res) => {
+cartRouter.post("/carrito", async (req, res) => {
     console.log(await carrito.createCart());
-    res.send('sucess')
+    res.send("sucess");
 });
 //DELETE: '/:id' - Vacía un carrito y lo elimina.
-router.delete("/carrito/:id", async (req, res) => {
+cartRouter.delete("/carrito/:id", async (req, res) => {
     res.send(await carrito.deleteCartById(req.params.id));
 });
 //GET: '/:id/productos' - Me permite listar todos los productos guardados en el carrito
-router.get("/carrito/:id/products", async (req, res) => {
+cartRouter.get("/carrito/:id/products", async (req, res) => {
     res.send(await carrito.getProducts(req.params.id));
 });
 //POST: '/:id/productos/:id_prod' - Para incorporar productos al carrito por su id de producto
-router.post("/carrito/:id/products/:id_prod", async (req, res) => {
-    
+cartRouter.post("/carrito/:id/products/:id_prod", async (req, res) => {
     await carrito.saveProduct(await products.getById(req.params.id_prod), req.params.id);
     res.send("sucess");
 });
 //DELETE: '/:id/productos/:id_prod' - Eliminar un producto del carrito por su id de carrito y de producto
-router.delete("/carrito/:id/products/:id_prod", (req, res) => {
+cartRouter.delete("/carrito/:id/products/:id_prod", (req, res) => {
     carrito.deleteProductById(req.params.id, req.params.id_prod);
     res.send("sucess");
 });
