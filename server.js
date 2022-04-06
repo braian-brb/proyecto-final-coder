@@ -29,44 +29,46 @@ router.get("/products/:id", async (req, res) => {
     res.json(await products.getById(req.params.id));
 });
 
-function isAdmin(req) {
-    const isAdmin = req.params.boolean.toLocaleLowerCase() === "true";
-    console.log(isAdmin);
-    return isAdmin;
+const middlewareIsAdmin = async (req, res, next) => {
+    const isAdmin = req.params.boolean.toLocaleLowerCase() 
+
+    if(isAdmin === "true") {
+        next();
+    }
+    else {
+        res.json({ error : -1, descripcion: "ruta 'x' método 'y' no autorizada"}) 
+    }
+    
 }
 
 //POST '/api/products' ->
-router.post("/products", (req, res) => {
+router.post("/products/:boolean",middlewareIsAdmin, async (req, res) => {
 
     products.save(req.body);
     res.redirect('/')
 
-/*     if (isAdmin(req)) {
-        products.save(req.body);
-        res.json({ result: "Success" });
-    } else res.json({ error: "Not authorized" });
-     */
 });
 
 //PUT '/api/products/:id' -> recibe y actualiza un producto según su id.
-router.put("/products/:id/:boolean", async (req, res) => {
-    if (isAdmin(req)) {
-        await products.updateById(req.params.id, req.body);
-        res.json({ result: "Success" });
-    } else res.json({ error: "Not authorized" });
+router.put("/products/:id/:boolean",middlewareIsAdmin, async (req, res) => {
+    //if (isAdmin(req)) {
+        res.send(await products.updateById(req.params.id, req.body))
+        //res.json({ result: "Success" });
+   // } else res.json({ error: "Not authorized" });
 });
 
 //DELETE '/api/products/:id' -> elimina un producto según su id.
-router.delete("/products/:id/:boolean", async (req, res) => {
-    if (isAdmin(req)) {
-        await products.deleteById(req.params.id);
-        res.json({ result: "Success" });
-    } else res.json({ error: "Not authorized" });
+router.delete("/products/:id/:boolean",middlewareIsAdmin, async (req, res) => {
+    //if (isAdmin(req)) {
+        res.send(await products.deleteById(req.params.id));
+     //   res.json({ result: "Success" });
+    //} else res.json({ error: "Not authorized" });
 });
 
 // **************************************************************** CARRITO
 
 const Cart = require("./carrito.js");
+const e = require("express");
 const carrito = new Cart();
 
 //POST: '/' - Crea un carrito y devuelve su id.

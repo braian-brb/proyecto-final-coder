@@ -10,14 +10,14 @@
     "timestamp": "4/5/2022, 9:09:20 PM"
   },
   {
-    "nombre": "Segundo",
-    "descripcion": "Segundo elemento de prueba",
-    "codigo": "22",
+    "nombre": "Lo actualizo pa x3",
+    "descripcion": "esoo",
+    "codigo": 1111,
     "thumbnail": "url",
-    "precio": 22,
-    "stock": 22,
+    "precio": 350,
+    "stock": 150,
     "id": 2,
-    "timestamp": "4/5/2022, 9:09:30 PM"
+    "timestamp": "4/6/2022, 9:56:12 AM"
   },
   {
     "nombre": "Tercer",
