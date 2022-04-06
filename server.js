@@ -77,9 +77,10 @@ router.delete("/carrito/:id", async (req, res) => {
 router.get("/carrito/:id/products", async (req, res) => {
     res.send(await carrito.getProducts(req.params.id));
 });
-//POST: '/:id/productos' - Para incorporar productos al carrito por su id de producto
-router.post("/carrito/:id/products", async (req, res) => {
-    await carrito.saveProduct(req.body, req.params.id);
+//POST: '/:id/productos/:id_prod' - Para incorporar productos al carrito por su id de producto
+router.post("/carrito/:id/products/:id_prod", async (req, res) => {
+    
+    await carrito.saveProduct(await products.getById(req.params.id_prod), req.params.id);
     res.send("sucess");
 });
 //DELETE: '/:id/productos/:id_prod' - Eliminar un producto del carrito por su id de carrito y de producto

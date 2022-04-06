@@ -34,7 +34,7 @@ class Cart {
     async saveProduct(product, idParameter) {
         const cartsList = JSON.parse(await this.fs.promises.readFile(this.path, "utf-8"));
         const cartsFind = cartsList.find((e) => e.id == parseInt(idParameter));
-        product.timestampProduct = new Date().toLocaleString()
+        //product.timestampProduct = new Date().toLocaleString()
         cartsFind.products.push(product);
 
         const cartsListSerialized = JSON.stringify(cartsList, null, 2);
