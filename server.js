@@ -67,7 +67,7 @@ const carrito = new Cart();
 //POST: '/' - Crea un carrito y devuelve su id.
 router.post("/carrito", async (req, res) => {
     console.log(await carrito.createCart());
-    
+    res.send('sucess')
 });
 //DELETE: '/:id' - Vacía un carrito y lo elimina.
 router.delete("/carrito/:id", async (req, res) => {

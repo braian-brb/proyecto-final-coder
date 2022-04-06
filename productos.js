@@ -1,5 +1,9 @@
 class Productos {
-    constructor() {}
+    constructor() {
+        if (!this.fs.existsSync(this.path)){
+            this.fs.writeFileSync(this.path, "[]");
+        } 
+    }
     path = "productList.txt";
     static id = 1;
     fs = require("fs");
@@ -7,7 +11,6 @@ class Productos {
     async save(product) {
         //save(Object): Number - Recibe un objeto, lo guarda en el archivo
         try {
-            if (!this.fs.existsSync(this.path)) await this.fs.promises.writeFile(this.path, "[]");
 
             const productsList = JSON.parse(await this.fs.promises.readFile(this.path, "utf-8"));
             if (productsList.length == 0) {
@@ -16,7 +19,7 @@ class Productos {
             }
 
             product.id = Productos.id;
-            product.timestamp = Date.now();
+            product.timestamp = new Date().toLocaleString();
             Productos.id++;
 
             /*  if ( productsList.length === 0) product["id"] = Productos.id, Productos.id++;
