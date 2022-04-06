@@ -36,11 +36,16 @@ function isAdmin(req) {
 }
 
 //POST '/api/products' ->
-router.post("/products/:boolean", (req, res) => {
-    if (isAdmin(req)) {
+router.post("/products", (req, res) => {
+
+    products.save(req.body);
+    res.redirect('/')
+
+/*     if (isAdmin(req)) {
         products.save(req.body);
         res.json({ result: "Success" });
     } else res.json({ error: "Not authorized" });
+     */
 });
 
 //PUT '/api/products/:id' -> recibe y actualiza un producto según su id.
