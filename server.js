@@ -16,16 +16,16 @@ const Productos = require("./productos.js");
 const products = new Productos();
 
 const { Router } = express;
-const productRoutes  = Router();
-app.use("/api/products", productRoutes );
+const productRoutes = Router();
+app.use("/api/products", productRoutes);
 
 //GET '/api/products' -> devuelve todos los products.
-productRoutes.get("", async (req, res) => {
+productRoutes.get("/", async (req, res) => {
     res.json(await products.getAll());
 });
 
 //GET '/api/products/:id' -> devuelve un producto según su id.
-productRoutes.get("/products/:id", async (req, res) => {
+productRoutes.get("/:id", async (req, res) => {
     res.json(await products.getById(req.params.id));
 });
 
@@ -40,7 +40,7 @@ const middlewareIsAdmin = async (req, res, next) => {
 };
 
 //PUT '/api/products/:id' -> recibe y actualiza un producto según su id.
-productRoutes.put("/products/:id/:boolean", middlewareIsAdmin, async (req, res) => {
+productRoutes.put("/:id/:boolean", middlewareIsAdmin, async (req, res) => {
     //if (isAdmin(req)) {
     res.send(await products.updateById(req.params.id, req.body));
     //res.json({ result: "Success" });
@@ -48,7 +48,7 @@ productRoutes.put("/products/:id/:boolean", middlewareIsAdmin, async (req, res) 
 });
 
 //DELETE '/api/products/:id' -> elimina un producto según su id.
-productRoutes.delete("/products/:id/:boolean", middlewareIsAdmin, async (req, res) => {
+productRoutes.delete("/:id/:boolean", middlewareIsAdmin, async (req, res) => {
     //if (isAdmin(req)) {
     res.send(await products.deleteById(req.params.id));
     //   res.json({ result: "Success" });
@@ -56,14 +56,14 @@ productRoutes.delete("/products/:id/:boolean", middlewareIsAdmin, async (req, re
 });
 
 //POST '/api/products' ->
-productRoutes.post("/products/:boolean", middlewareIsAdmin, async (req, res) => {
+productRoutes.post("/:boolean", middlewareIsAdmin, async (req, res) => {
     products.save(req.body);
     res.redirect("/");
 });
 
 // **************************************************************** CARRITO
-const cartRouter = Router()
-app.use("/api/carrito", cartRouter );
+const cartRouter = Router();
+app.use("/api/carrito", cartRouter);
 const Cart = require("./carrito.js");
 //const e = require("express");
 const carrito = new Cart();
