@@ -1,0 +1,72 @@
+[
+  {
+    "nombre": "quinto",
+    "descripcion": "453",
+    "codigo": "dsfds",
+    "thumbnail": "url",
+    "precio": 350,
+    "stock": 1,
+    "id": 1,
+    "timestamp": 1649174741820
+  },
+  {
+    "nombre": "SEGUNDO",
+    "descripcion": "453",
+    "codigo": "dsfds",
+    "thumbnail": "url",
+    "precio": 350,
+    "stock": 1,
+    "id": 2,
+    "timestamp": 1649174749660
+  },
+  {
+    "nombre": "tercero",
+    "descripcion": "453",
+    "codigo": "dsfds",
+    "thumbnail": "url",
+    "precio": 350,
+    "stock": 1,
+    "id": 3,
+    "timestamp": 1649174754129
+  },
+  {
+    "nombre": "cuarto",
+    "descripcion": "453",
+    "codigo": "dsfds",
+    "thumbnail": "url",
+    "precio": 350,
+    "stock": 1,
+    "id": 4,
+    "timestamp": 1649174758536
+  },
+  {
+    "nombre": "QUINTO",
+    "descripcion": "453",
+    "codigo": "dsfds",
+    "thumbnail": "url",
+    "precio": 350,
+    "stock": 1,
+    "id": 5,
+    "timestamp": 1649174772364
+  },
+  {
+    "nombre": "QUINTO",
+    "descripcion": "453",
+    "codigo": "dsfds",
+    "thumbnail": "url",
+    "precio": 350,
+    "stock": 1,
+    "id": 6,
+    "timestamp": 1649176079593
+  },
+  {
+    "nombre": "QUINTO",
+    "descripcion": "453",
+    "codigo": "dsfds",
+    "thumbnail": "url",
+    "precio": 350,
+    "stock": 1,
+    "id": 7,
+    "timestamp": 1649192882225
+  }
+]

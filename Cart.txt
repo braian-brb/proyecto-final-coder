@@ -1,0 +1,94 @@
+[
+  {
+    "id": 1,
+    "timestampCart": "4/5/2022, 8:51:33 PM",
+    "products": []
+  },
+  {
+    "id": 2,
+    "timestampCart": "4/5/2022, 8:51:33 PM",
+    "products": [
+      {
+        "nombre": "SEGGGGGG SEGGGG",
+        "descripcion": "453",
+        "codigo": "dsfds",
+        "thumbnail": "asdsadsadsadsadasd",
+        "precio": 350,
+        "stock": 1,
+        "id": 1,
+        "timestampProduct": "4/5/2022, 8:51:40 PM"
+      },
+      {
+        "nombre": "SEGGGGGG SEGGGG",
+        "descripcion": "453",
+        "codigo": "dsfds",
+        "thumbnail": "asdsadsadsadsadasd",
+        "precio": 350,
+        "stock": 1,
+        "id": 2,
+        "timestampProduct": "4/5/2022, 8:51:43 PM"
+      },
+      {
+        "nombre": "SEGGGGGG SEGGGG",
+        "descripcion": "453",
+        "codigo": "dsfds",
+        "thumbnail": "asdsadsadsadsadasd",
+        "precio": 350,
+        "stock": 1,
+        "id": 3,
+        "timestampProduct": "4/5/2022, 8:51:45 PM"
+      },
+      {
+        "nombre": "SEGGGGGG SEGGGG",
+        "descripcion": "453",
+        "codigo": "dsfds",
+        "thumbnail": "asdsadsadsadsadasd",
+        "precio": 350,
+        "stock": 1,
+        "id": 999,
+        "timestampProduct": "4/5/2022, 8:51:51 PM"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "timestampCart": "4/5/2022, 8:51:34 PM",
+    "products": []
+  },
+  {
+    "id": 4,
+    "timestampCart": "4/5/2022, 8:51:35 PM",
+    "products": [
+      {
+        "nombre": "SEGGGGGG SEGGGG",
+        "descripcion": "453",
+        "codigo": "dsfds",
+        "thumbnail": "asdsadsadsadsadasd",
+        "precio": 350,
+        "stock": 1,
+        "id": 999,
+        "timestampProduct": "4/5/2022, 8:51:55 PM"
+      },
+      {
+        "nombre": "SEGGGGGG SEGGGG",
+        "descripcion": "453",
+        "codigo": "dsfds",
+        "thumbnail": "asdsadsadsadsadasd",
+        "precio": 350,
+        "stock": 1,
+        "id": 2,
+        "timestampProduct": "4/5/2022, 8:51:58 PM"
+      },
+      {
+        "nombre": "SEGGGGGG SEGGGG",
+        "descripcion": "453",
+        "codigo": "dsfds",
+        "thumbnail": "asdsadsadsadsadasd",
+        "precio": 350,
+        "stock": 1,
+        "id": 3,
+        "timestampProduct": "4/5/2022, 8:52:00 PM"
+      }
+    ]
+  }
+]
