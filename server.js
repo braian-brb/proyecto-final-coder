@@ -29,10 +29,9 @@ productRoutes.get("/:id", async (req, res) => {
     res.json(await products.getById(req.params.id));
 });
 
-const middlewareIsAdmin = async (req, res, next) => {
-    const isAdmin = req.params.boolean.toLocaleLowerCase();
-
-    if (isAdmin === "true") {
+let admin = true;
+const middlewareIsAdmin = (req, res, next) => {
+    if (admin) {
         next();
     } else {
         res.json({ error: -1, descripcion: "ruta 'x' método 'y' no autorizada" });
@@ -40,25 +39,19 @@ const middlewareIsAdmin = async (req, res, next) => {
 };
 
 //PUT '/api/products/:id' -> recibe y actualiza un producto según su id.
-productRoutes.put("/:id/:boolean", middlewareIsAdmin, async (req, res) => {
-    //if (isAdmin(req)) {
+productRoutes.put("/:id", middlewareIsAdmin, async (req, res) => {
     res.send(await products.updateById(req.params.id, req.body));
-    //res.json({ result: "Success" });
-    // } else res.json({ error: "Not authorized" });
 });
 
 //DELETE '/api/products/:id' -> elimina un producto según su id.
-productRoutes.delete("/:id/:boolean", middlewareIsAdmin, async (req, res) => {
-    //if (isAdmin(req)) {
+productRoutes.delete("/:id", middlewareIsAdmin, async (req, res) => {
     res.send(await products.deleteById(req.params.id));
-    //   res.json({ result: "Success" });
-    //} else res.json({ error: "Not authorized" });
 });
 
 //POST '/api/products' ->
-productRoutes.post("/:boolean", middlewareIsAdmin, async (req, res) => {
+productRoutes.post("/", middlewareIsAdmin, async (req, res) => {
     products.save(req.body);
-    res.redirect("/");
+    res.redirect("/"); 
 });
 
 // **************************************************************** CARRITO
