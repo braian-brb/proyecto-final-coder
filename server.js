@@ -29,8 +29,9 @@ productRoutes.get("/:id", async (req, res) => {
     res.json(await products.getById(req.params.id));
 });
 
-let admin = true;
+
 const middlewareIsAdmin = (req, res, next) => {
+    const admin = true;
     if (admin) {
         next();
     } else {
