@@ -1,41 +1,5 @@
 [
   {
-    "id": 1,
-    "timestampCart": "4/5/2022, 9:48:21 PM",
-    "products": [
-      {
-        "nombre": "Primer",
-        "descripcion": "Primer elemento de prueba",
-        "codigo": "11",
-        "thumbnail": "url",
-        "precio": 11,
-        "stock": 11,
-        "id": 1,
-        "timestamp": "4/5/2022, 9:09:20 PM"
-      },
-      {
-        "nombre": "Segundo",
-        "descripcion": "Segundo elemento de prueba",
-        "codigo": "22",
-        "thumbnail": "url",
-        "precio": 22,
-        "stock": 22,
-        "id": 2,
-        "timestamp": "4/5/2022, 9:09:30 PM"
-      },
-      {
-        "nombre": "Cuarto",
-        "descripcion": "Cuarto elemento de prueba",
-        "codigo": "44",
-        "thumbnail": "url",
-        "precio": 44,
-        "stock": 44,
-        "id": 4,
-        "timestamp": "4/5/2022, 9:09:54 PM"
-      }
-    ]
-  },
-  {
     "id": 2,
     "timestampCart": "4/5/2022, 9:48:22 PM",
     "products": []
@@ -60,5 +24,10 @@
         "timestamp": "4/5/2022, 9:09:54 PM"
       }
     ]
+  },
+  {
+    "id": 5,
+    "timestampCart": "4/9/2022, 3:57:16 PM",
+    "products": []
   }
 ]
