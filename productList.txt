@@ -10,16 +10,6 @@
     "timestamp": "4/5/2022, 9:09:20 PM"
   },
   {
-    "nombre": "Lo actualizo pa x4",
-    "descripcion": "esoo",
-    "codigo": 1111,
-    "thumbnail": "url",
-    "precio": 350,
-    "stock": 150,
-    "id": 2,
-    "timestamp": "4/6/2022, 10:04:14 AM"
-  },
-  {
     "nombre": "Tercer",
     "descripcion": "Tercer elemento de prueba",
     "codigo": "33",
@@ -68,15 +58,5 @@
     "stock": "11",
     "id": 7,
     "timestamp": "4/5/2022, 10:12:17 PM"
-  },
-  {
-    "name": "FERRETERIA",
-    "description": "FE",
-    "code": "2",
-    "thumbnail": "2",
-    "price": "200",
-    "stock": "2",
-    "id": 8,
-    "timestamp": "4/5/2022, 10:12:32 PM"
   }
 ]

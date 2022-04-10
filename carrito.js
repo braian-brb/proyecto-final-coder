@@ -40,7 +40,7 @@ class Cart {
         const cartsListSerialized = JSON.stringify(cartsList, null, 2);
         await this.fs.promises.writeFile(this.path, cartsListSerialized);
 
-        return console.log(cartsFind);
+        return cartsFind;
     }
 
     async getProducts(idParameter) {
@@ -69,20 +69,17 @@ class Cart {
         try {
             const cartsList = JSON.parse(await this.fs.promises.readFile(this.path, "utf-8"));
             const cartsFind = cartsList.find((e) => e.id == parseInt(idCart));
-
-            const productFindIndex = cartsFind.products.findIndex((e) => e.id == parseInt(idProduct))
-
+            const productFindIndex = cartsFind.products.findIndex((e) => e.id == parseInt(idProduct));
+            const delProduct = cartsFind.products[productFindIndex];
             cartsFind.products.splice(productFindIndex, 1);
             console.log(cartsFind);
             const cartsListSerialized = JSON.stringify(cartsList, null, 2);
             await this.fs.promises.writeFile(this.path, cartsListSerialized);
-            return cartsFind;
+            return delProduct;
         } catch (error) {
             console.log(error);
         }
     }
-
-
 
     async deleteAll() {
         //deleteAll(): void - Elimina todos los objetos presentes en el archivo.

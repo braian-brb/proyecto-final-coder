@@ -1,8 +1,8 @@
 class Productos {
     constructor() {
-        if (!this.fs.existsSync(this.path)){
+        if (!this.fs.existsSync(this.path)) {
             this.fs.writeFileSync(this.path, "[]");
-        } 
+        }
     }
     path = "productList.txt";
     static id = 1;
@@ -11,7 +11,6 @@ class Productos {
     async save(product) {
         //save(Object): Number - Recibe un objeto, lo guarda en el archivo
         try {
-
             const productsList = JSON.parse(await this.fs.promises.readFile(this.path, "utf-8"));
             if (productsList.length == 0) {
             } else {
@@ -57,9 +56,11 @@ class Productos {
         try {
             const productsList = JSON.parse(await this.fs.promises.readFile(this.path, "utf-8"));
             const productFindIndex = productsList.findIndex((e) => e.id == idParameter);
+            const delProduct = productsList[productFindIndex];
             productsList.splice(productFindIndex, 1);
             const productsListSerialized = JSON.stringify(productsList, null, 2);
             await this.fs.promises.writeFile(this.path, productsListSerialized);
+            return delProduct;
         } catch (error) {
             console.log(error);
         }
@@ -83,8 +84,7 @@ class Productos {
 
         if (productFindIndex != -1) {
             updateProduct.id = parseInt(idParameter);
-            updateProduct.timestamp = new Date().toLocaleString(),
-            productsList[productFindIndex] = updateProduct;
+            (updateProduct.timestamp = new Date().toLocaleString()), (productsList[productFindIndex] = updateProduct);
             const productsListSerialized = JSON.stringify(productsList, null, 2);
             await this.fs.promises.writeFile(this.path, productsListSerialized);
             return updateProduct;

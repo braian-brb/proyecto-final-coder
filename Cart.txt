@@ -12,22 +12,21 @@
   {
     "id": 4,
     "timestampCart": "4/5/2022, 9:48:24 PM",
-    "products": [
-      {
-        "nombre": "Cuarto",
-        "descripcion": "Cuarto elemento de prueba",
-        "codigo": "44",
-        "thumbnail": "url",
-        "precio": 44,
-        "stock": 44,
-        "id": 4,
-        "timestamp": "4/5/2022, 9:09:54 PM"
-      }
-    ]
+    "products": []
   },
   {
     "id": 5,
     "timestampCart": "4/9/2022, 3:57:16 PM",
+    "products": []
+  },
+  {
+    "id": 6,
+    "timestampCart": "4/9/2022, 9:14:11 PM",
+    "products": []
+  },
+  {
+    "id": 7,
+    "timestampCart": "4/9/2022, 9:14:13 PM",
     "products": []
   }
 ]
