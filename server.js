@@ -81,3 +81,8 @@ cartRouter.post("/:id/products/:id_prod", async (req, res) => {
 cartRouter.delete("/:id/products/:id_prod", (req, res) => {
     res.json({ delete: carrito.deleteProductById(req.params.id, req.params.id_prod) });
 });
+
+
+app.use((req, res, next) => {
+    res.status(404).json({error : -2, descripcion: `Ruta no implementada`})
+    })
